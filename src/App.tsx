@@ -1,3 +1,4 @@
+import { CellColony } from './components/Container';
 import { Counter } from './components/Counter';
 import { QuadraticController } from './components/QuadraticController';
 import { QuadraticPlot } from './components/QuadraticPlot';
@@ -19,6 +20,9 @@ function App() {
       <QuadraticController></QuadraticController>
       <h2>Quadratic Plot</h2>
       {/* <QuadraticPlot a={1} b={2} c={3}></QuadraticPlot> */}
+
+        <h2>Cell Colony</h2>
+        <CellColony></CellColony>
     </div>
   );
 }
