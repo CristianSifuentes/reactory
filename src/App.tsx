@@ -6,6 +6,9 @@ import { User } from './components/User';
 import { EquationVisualizer } from './components/EquationVisualizer';
 import { MathProvider } from './components/MathContext';
 import { EquationSelector } from './components/EquationSelector';
+import { useRef } from 'react';
+import { Timer } from './components/Timer';
+import { TimerChild } from './components/TimerChild';
 
 function App() {
   return (
@@ -16,6 +19,11 @@ function App() {
       <h2>useState</h2>
       <Counter></Counter>
       <User></User>
+
+      <h2>usseEffect - useRef</h2>
+      <br/>
+
+      <Timer></Timer>
 
 {/* 
       <h2></h2>
