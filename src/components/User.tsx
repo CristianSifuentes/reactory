@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Onclick } from '../../../GifsApp_/src/app/gifs/interfaces/giphy.interfaces';
 
 interface User {
     uid:    string; 
