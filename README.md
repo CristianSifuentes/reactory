@@ -35,6 +35,14 @@ React Hooks are special functions that allow you to use React features (like sta
 10. [TypeScript Integration](#typescript-integration)
 11. [Best Practices](#best-practices)
 12. [Conclusion](#conclusion)
+13. [Overview](#overview)
+14. [Defining TypeScript Interfaces](#defining-typescript-interfaces)
+15. [Setting Up Initial State](#setting-up-initial-state)
+16. [Implementing Login Logic](#implementing-login-logic)
+17. [Conditional Rendering](#conditional-rendering)
+18. [Rendering the Component](#rendering-the-component)
+19. [Expert Notes](#expert-notes)
+20. [Conclusion](#conclusion)
 ---
 
 ## State Hooks
