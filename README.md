@@ -1,5 +1,5 @@
 
-# 📘 React Hooks: Expert Overview & Practical Guide
+# React Hooks: Expert Overview & Practical Guide
 
 React Hooks are special functions that allow you to use React features (like state and lifecycle methods) inside functional components—**without using classes**. These built-in Hooks simplify managing state, side effects, references, context access, and even performance optimization.
 
@@ -26,23 +26,25 @@ React Hooks are special functions that allow you to use React features (like sta
    - forwardRef
    - useDebugValue
 7. [Custom Hooks](#custom-hooks)
-8. [Overview](#overview)
-9. [Code Breakdown](#code-breakdown)
-    - Importing `useState`
-    - Initializing State
-    - Updating State with a Function
-    - JSX and Event Handlers
-10. [TypeScript Integration](#typescript-integration)
-11. [Best Practices](#best-practices)
-12. [Conclusion](#conclusion)
-13. [Overview](#overview)
-14. [Defining TypeScript Interfaces](#defining-typescript-interfaces)
-15. [Setting Up Initial State](#setting-up-initial-state)
-16. [Implementing Login Logic](#implementing-login-logic)
-17. [Conditional Rendering](#conditional-rendering)
-18. [Rendering the Component](#rendering-the-component)
-19. [Expert Notes](#expert-notes)
-20. [Conclusion](#conclusion)
+8. [Example 1](#example1)
+   - [Overview 1](#overview1)
+   - [Code Breakdown](#code-breakdown)
+        - Importing `useState`
+        - Initializing State
+        - Updating State with a Function
+        - JSX and Event Handlers
+   - [TypeScript Integration](#typescript-integration)
+   - [Best Practices](#best-practices)
+   - [Conclusion](#conclusion)
+9. [Example 2](#example-2)
+   - [Overview 2](#overview-2)
+   - [Defining TypeScript Interfaces](#defining-typescript-interfaces)
+   - [Setting Up Initial State](#setting-up-initial-state)
+   - [Implementing Login Logic](#implementing-login-logic)
+   - [Conditional Rendering](#conditional-rendering)
+   - [Rendering the Component](#rendering-the-component)
+   - [Expert Notes](#expert-notes)
+   - [Conclusion 2](#conclusion-2)
 ---
 
 ## State Hooks
@@ -143,7 +145,7 @@ Explore them in depth and build your own custom hooks to level up as a React dev
 ---
 
 
-## Overview
+## Overview 1
 
 This example demonstrates the `useState` hook for managing a numeric counter. The component:
 
@@ -233,7 +235,7 @@ return (
 
 ---
 
-## Conclusion
+## Conclusion 1
 
 The `useState` hook is foundational in React. This example is a perfect stepping stone to master stateful logic in functional components.
 
@@ -245,4 +247,112 @@ Key takeaways:
 - TypeScript enhances safety and documentation
 
 ---
+
+## Overview 2
+
+We build a component that tracks a `User` object with properties `uid` and `name`. It simulates logging in and conditionally renders user data.
+
+---
+
+## Defining TypeScript Interfaces
+
+```tsx
+interface User {
+    uid: string;
+    name: string;
+}
+```
+
+- Defines the shape of the user object.
+- Enables type safety and autocompletion in `useState`.
+
+---
+
+## Setting Up Initial State
+
+```tsx
+const [user, setUser] = useState<User>({
+  uid: '',
+  name: ''
+});
+```
+
+- Initializes `user` as an empty object matching the `User` interface.
+- The generic `<User>` ensures type safety.
+- `setUser` updates the `user` state.
+
+---
+
+## Implementing Login Logic
+
+```tsx
+const login = () => { 
+  setUser({
+    uid: 'ABC123',
+    name: 'Fernando'
+  });
+}
+```
+
+- When the `login` button is clicked, it sets the user object to hardcoded credentials.
+- Could be replaced with a real API call in production.
+
+---
+
+## Conditional Rendering
+
+```tsx
+{
+  (!user)
+    ? <pre>Not found user:</pre>
+    : <pre>{ JSON.stringify(user) }</pre>
+}
+```
+
+- Displays different content depending on whether a user exists.
+- Note: since `user` is always initialized (even if empty), this condition will always render the `user` object.
+- A better check would be `!user.uid`.
+
+---
+
+## Rendering the Component
+
+```tsx
+return (
+  <div className="mt-5">
+      <h3>User: useState</h3>
+      <button onClick={login} className="btn btn-outline-primary">login</button>
+      ...
+  </div>
+);
+```
+
+- Includes a login button styled with Bootstrap.
+- Displays user info in `<pre>` format using `JSON.stringify()`.
+
+---
+
+## Expert Notes
+
+| Concern                     | Expert Practice                          |
+|-----------------------------|------------------------------------------|
+| Type inference              | Always declare type explicitly with `<User>` |
+| Object checks               | Use `!user.uid` instead of `!user`       |
+| Avoid magic values          | Store temp users in constants            |
+| JSON rendering              | Ideal for debug, avoid in production     |
+
+---
+
+## Conclusion 2
+
+This example demonstrates:
+
+- Using `useState` with complex object types.
+- Managing user login simulation.
+- Conditional rendering based on object state.
+- Best practices for type safety and readability.
+
+---
+
+
 
