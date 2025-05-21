@@ -13,6 +13,7 @@ import { SineWaveTimer } from './components/SineWaveTimer';
 import { SineWaveTimer2 } from './components/SineWaveTime2r';
 import React from 'react';
 import { TextInput, TextInputHandle } from './components/TextInput';
+import { OptimizedComponent } from './components/OptimizedComponent';
 
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
       <button onClick={() => inputRef.current?.focus()}>
         Focus Input
       </button>
+
+      <OptimizedComponent></OptimizedComponent>
 
 {/* 
       <h2></h2>
