@@ -20,7 +20,16 @@ React Hooks are special functions that allow you to use React features (like sta
 5. [Summary](#summary-for-react-experts)
 6. [Custom Hooks](#custom-hooks)
 7. [Conclusion](#conclusion)
-
+8. [Example 1](#example-1)
+   - [Overview 1](#overview-1)
+   - [Code Breakdown](#code-breakdown)
+   - [Importing `useState`](#importing-usestate)
+   - [Initializing State](#importing-usestate)
+   - [Updating State with a Function](#updating-state-with-a-function)
+   - [JSX and Event Handlers](#jsx-and-event-handlers)
+   - [TypeScript Integration](#typescript-integration)
+   - [Best Practices](#best-practices)
+   - [Conclusion 1](#conclusion-1)
 
 
 ## What Are Hooks in React?
@@ -159,5 +168,110 @@ React Hooks are a powerful way to structure your components. Mastering them enab
 Explore them in depth and build your own custom hooks to level up as a React developer.
 
 ---
+
+## Example 1
+
+---
+### Overview 1
+
+This example demonstrates the `useState` hook for managing a numeric counter. The component:
+
+- Initializes the state at `0`
+- Increments the counter by 1 or 2
+- Resets the counter to 0
+---
+
+### Code Breakdown
+
+### Importing `useState`
+
+```tsx
+import { useState } from 'react';
+```
+
+React provides `useState` as a named export. It's essential for enabling local component state in functional components.
+
+---
+
+### Initializing State
+
+```tsx
+const [counter, setCounter] = useState(0);
+```
+
+- `counter` is the current value of the state.
+- `setCounter` is the function to update that value.
+- `useState(0)` initializes the counter with a value of 0.
+- Type inference automatically sets `counter` as a `number`.
+
+---
+
+### Updating State with a Function
+
+```tsx
+const increment = (num: number): void => {
+  setCounter(counter + num);
+}
+```
+
+- This function increments the current `counter` by a dynamic value `num`.
+- The `void` return type is explicit but not mandatory.
+- `setCounter` triggers a re-render when the state changes.
+
+---
+
+
+### JSX and Event Handlers
+
+```tsx
+return (
+  <div className='mt-5'>
+      <h3>Counter: useState</h3>
+      <span>Value: { counter }</span>
+      <br/>
+     <button  onClick={() => increment(1)} type="button" className="btn btn-primary mt-2">+1</button>
+     <button  onClick={() => increment(2)} type="button" className="btn btn-primary mt-2">+2</button>
+     <button  onClick={() => setCounter(0)} type="button" className="btn btn-danger mt-2">reset</button>
+  </div>
+);
+```
+
+- Three buttons call the increment or reset logic using arrow functions.
+- `+1` and `+2` buttons call `increment(1)` and `increment(2)`, respectively.
+- The `reset` button uses `setCounter(0)` to restore initial state.
+- `className` is used for styling with Bootstrap or similar frameworks.
+
+---
+
+
+### TypeScript Integration
+
+- `useState(0)` infers `number` type automatically.
+- `increment` function explicitly declares the parameter `num: number` and return type `void`.
+- Ensures strict type checking and better IDE support.
+
+---
+
+### Best Practices
+
+| Practice                     | Why It Matters                                     |
+|-----------------------------|----------------------------------------------------|
+| Use arrow functions in JSX  | Avoids unnecessary re-renders with inline logic    |
+| Parameterize update logic   | Makes the function reusable and testable           |
+| Clear naming conventions    | Improves readability (`counter`, `setCounter`)     |
+| Reset logic separation      | Keeps UI behavior intuitive and predictable        |
+
+---
+
+### Conclusion 1
+
+The `useState` hook is foundational in React. This example is a perfect stepping stone to master stateful logic in functional components.
+
+Key takeaways:
+
+- `useState` provides value and setter pair
+- Re-renders are triggered automatically
+- Functions like `increment` abstract logic for cleaner JSX
+- TypeScript enhances safety and documentation
 
 
