@@ -14,6 +14,7 @@ import { SineWaveTimer2 } from './components/SineWaveTime2r';
 import React from 'react';
 import { TextInput, TextInputHandle } from './components/TextInput';
 import { OptimizedComponent } from './components/OptimizedComponent';
+import { QuadraticSolver } from './components/QuadraticSolver';
 
 
 function App() {
@@ -46,6 +47,8 @@ function App() {
       </button>
 
       <OptimizedComponent></OptimizedComponent>
+
+      <QuadraticSolver></QuadraticSolver>
 
 {/* 
       <h2></h2>
