@@ -45,6 +45,20 @@ React Hooks are special functions that allow you to use React features (like sta
    - [Rendering the Component](#rendering-the-component)
    - [Expert Notes](#expert-notes)
    - [Conclusion 2](#conclusion-2)
+10. [Example 3](#example-3)
+    - [Overview 3](#overview-3)
+    - [Initial Setup](#initial-setup)
+    - [Action Type Definition](#action-type-definition)
+    - [Reducer Function Explained](#reducer-function-explained)
+    - [Key Concepts](#key-concepts)
+    - [What is useReducer?](#what-is-usereducer)
+    - [Output Behavior](#output-behavior)
+    - [Best Practices](#best-practices)
+    - [When to Use `useReducer`](#when-to-use-usereducer)
+    - [Conclusion 3](#conclusion-3)
+
+ 
+
 ---
 
 ## State Hooks
@@ -144,6 +158,7 @@ Explore them in depth and build your own custom hooks to level up as a React dev
 
 ---
 
+# Example 1
 
 ## Overview 1
 
@@ -247,6 +262,9 @@ Key takeaways:
 - TypeScript enhances safety and documentation
 
 ---
+
+# Example 2
+
 
 ## Overview 2
 
@@ -353,6 +371,122 @@ This example demonstrates:
 - Best practices for type safety and readability.
 
 ---
+
+
+# Overview 3
+
+`useReducer` is a powerful React hook for managing complex state logic in a clean and predictable way. It provides an alternative to `useState` and is especially helpful when state transitions depend on previous state or involve multiple actions.
+
+---
+
+## Initial Setup
+
+```tsx
+import { useReducer } from "react";
+
+const initialState = {
+  counter: 10
+}
+```
+
+- `initialState` defines the starting state of the `counter`.
+- This state will be managed by our reducer function.
+
+---
+
+## Action Type Definition
+
+```tsx
+type ActionType = {
+  type: 'increment' | 'decrement' | 'custom';
+  payload?: number;
+}
+```
+
+- `ActionType` is a union type defining valid `type` values.
+- `payload` is optional and only needed for the `'custom'` case.
+
+---
+
+## Reducer Function Explained
+
+```tsx
+const reducerCounter = (state: typeof initialState, action: ActionType) => {
+  switch (action.type) {
+    case 'increment':
+      return { ...state, counter: state.counter + 1 }
+    case 'decrement':
+      return { ...state, counter: state.counter - 1 }
+    case 'custom':
+      return { ...state, counter: state.counter + (action.payload || 0) }
+    default:
+      return state;
+  }
+}
+```
+
+### Key Concepts
+
+- **Pure Function**: Reducers must be pure, without side effects.
+- **Spread Operator**: `{ ...state, counter: ... }` ensures immutability by copying state.
+- **Payload Usage**: `payload` allows dynamic updates like custom increments.
+
+---
+
+## What is useReducer?
+
+- `useReducer` manages state with a reducer function.
+- It returns an array: `[state, dispatch]`.
+- `dispatch()` is used to send actions that the reducer interprets.
+
+---
+
+## Full Component: CounterRed
+
+```tsx
+export const CounterRed = () => {
+  const [state, dispatch] = useReducer(reducerCounter, initialState);
+
+  return (
+    <>
+      <div>Counter: {state.counter}</div>
+      <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>
+      <button onClick={() => dispatch({ type: 'custom', payload: 10 })}>Custom +10</button>
+    </>
+  )
+}
+```
+
+### Output Behavior
+
+| Action     | State Change        |
+|------------|---------------------|
+| Increment  | `counter += 1`      |
+| Decrement  | `counter -= 1`      |
+| Custom     | `counter += payload`|
+
+---
+
+## Best Practices
+
+- Keep reducer functions pure and stateless.
+- Use action types consistently and descriptively.
+- Combine with TypeScript to ensure strong type safety.
+
+---
+
+## When to Use `useReducer`
+
+- Complex state transitions.
+- State updates based on previous state.
+- Better testability and organization.
+
+---
+
+## Conclusion 3
+
+React’s `useReducer` hook is a master tool for managing state transitions in advanced applications. Whether you’re building dynamic forms, reducers with multiple actions, or simply avoiding prop drilling, `useReducer` is a must-have in your React arsenal.
 
 
 
