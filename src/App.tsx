@@ -1,18 +1,21 @@
 import { CellColony } from './components/Container';
-import { Counter } from './components/Counter';
+import { Counter } from './components/react-typescript/Counter';
 import { QuadraticController } from './components/QuadraticController';
 import { QuadraticPlot } from './components/QuadraticPlot';
-import { User } from './components/User';
+import { User } from './components/react-typescript/User';
 import { EquationVisualizer } from './components/EquationVisualizer';
 import { MathProvider } from './components/MathContext';
 import { EquationSelector } from './components/EquationSelector';
 import { useRef } from 'react';
-import { Timer } from './components/Timer';
-import { TimerChild } from './components/TimerChild';
+import { Timer } from './components/react-typescript/Timer';
+import { TimerChild } from './components/react-typescript/TimerChild';
 import { SineWaveTimer } from './components/SineWaveTimer';
 import { SineWaveTimer2 } from './components/SineWaveTime2r';
 import React from 'react';
 import { TextInput, TextInputHandle } from './components/TextInput';
+import { OptimizedComponent } from './components/OptimizedComponent';
+import { QuadraticSolver } from './components/QuadraticSolver';
+import { CounterRed } from './components/react-typescript/CounterRed';
 
 
 function App() {
@@ -43,6 +46,14 @@ function App() {
       <button onClick={() => inputRef.current?.focus()}>
         Focus Input
       </button>
+
+      <OptimizedComponent></OptimizedComponent>
+
+      <QuadraticSolver></QuadraticSolver>
+
+      <h1>useReducer</h1>
+      <CounterRed></CounterRed>
+
 
 {/* 
       <h2></h2>
