@@ -372,8 +372,10 @@ This example demonstrates:
 
 ---
 
+## Example 3
 
-# Overview 3
+
+## Overview 3
 
 `useReducer` is a powerful React hook for managing complex state logic in a clean and predictable way. It provides an alternative to `useState` and is especially helpful when state transitions depend on previous state or involve multiple actions.
 
