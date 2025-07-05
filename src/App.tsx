@@ -17,6 +17,7 @@ import { OptimizedComponent } from './components/OptimizedComponent';
 import { QuadraticSolver } from './components/QuadraticSolver';
 import { CounterRed } from './components/react-typescript/CounterRed';
 import { Form } from './components/react-typescript/Form';
+// import { Form2 } from './components/react-typescript/Form2';
 
 function App() {
   const inputRef = useRef<TextInputHandle>(null);
@@ -59,6 +60,9 @@ function App() {
       <hr>
       </hr>
       <Form></Form>
+
+      <br></br>
+      {/* <Form2></Form2> */}
  
 
 

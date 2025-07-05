@@ -6,7 +6,8 @@ import { useForm } from '../../hooks/useForm'
 interface FormData {
     email: string;
     name : string;
-    age: number
+    age: number,
+    postalcode: number
 }
 
 
@@ -15,10 +16,11 @@ export const Form = () => {
   const { form, handleChange } = useForm<FormData>({
     email: 'cristian@gmail.com',
     name: 'Cristian Sifuntes',
-    age: 10
+    age: 10,
+    postalcode: 35026
   });
 
-  const {email, name, age } = form;
+  const {email, name, age,  } = form;
 
 
   // const [ form, setForm ] = useState({
