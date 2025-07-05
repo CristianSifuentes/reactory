@@ -16,7 +16,8 @@ import { TextInput, TextInputHandle } from './components/TextInput';
 import { OptimizedComponent } from './components/OptimizedComponent';
 import { QuadraticSolver } from './components/QuadraticSolver';
 import { CounterRed } from './components/react-typescript/CounterRed';
-
+import { Form } from './components/react-typescript/Form';
+// import { Form2 } from './components/react-typescript/Form2';
 
 function App() {
   const inputRef = useRef<TextInputHandle>(null);
@@ -53,6 +54,16 @@ function App() {
 
       <h1>useReducer</h1>
       <CounterRed></CounterRed>
+
+
+      <h2>customHooks</h2>
+      <hr>
+      </hr>
+      <Form></Form>
+
+      <br></br>
+      {/* <Form2></Form2> */}
+ 
 
 
 {/* 
